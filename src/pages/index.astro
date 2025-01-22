@@ -16,6 +16,13 @@ const allBiologyPosts = await getCollection('biology');
 			<p>new articles</p>
 			<div>cards</div>
 		</div>
+		<ul>
+			{allBiologyPosts.map(post => (
+			  <li>
+				<a href={`/biology/${post.slug}`}>{post.data.title}</a>
+			  </li>
+			))}
+		  </ul>
 		<a href="/articles/biology/02">02</a>
 
 	</div>
