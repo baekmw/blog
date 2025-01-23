@@ -1,6 +1,8 @@
 ---
 sticker: emoji//1f4a6
 title: 03. Water and Life
+slug: biology-03
+pubDate: "2025-01-21"
 ---
 
 # concept 3.1. Polar covalent bonds in water molecules result in hydrogen bonding

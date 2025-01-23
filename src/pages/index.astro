@@ -2,27 +2,26 @@
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
-const allBiologyPosts = await getCollection('biology');
+const allBiologyPosts = await getCollection('content');
 ---
 
 <Layout>
-	<div class="w-fit h-full m-auto">
+	<div class="w-full h-full flex flex-col justify-center items-center">
 		<div>pic</div>
 		<div>
-			<p>topic</p>
-			<div>cards</div>
+			<p>주제</p>
+			<div>생물학</div>
 		</div>
 		<div>
 			<p>new articles</p>
-			<div>cards</div>
+			<div>cards {allBiologyPosts.length}</div>
 		</div>
 		<ul>
 			{allBiologyPosts.map(post => (
 			  <li>
-				<a href={`/biology/${post.slug}`}>{post.data.title}</a>
+				<a href={`/${post.data.slug}`}>{post.id}</a>
 			  </li>
 			))}
 		  </ul>
-
 	</div>
 </Layout>

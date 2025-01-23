@@ -1,0 +1,38 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection, getEntry, render } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+const posts = await getCollection('content');
+
+export const getStaticPaths = (async () => {
+const posts = await getCollection('content');
+
+  return posts.map((post) => {
+    return {params: { slug: post.data.slug }}
+  });
+}) satisfies GetStaticPaths;
+
+const { slug } = Astro.params;
+
+const post = posts.find(p => p.data.slug === slug);
+if (!post) {
+  throw new Error(`Post not found: ${slug}`);
+}
+
+const { Content } = await render(post);
+---
+
+<Layout>
+  <div class="w-full h-fit flex justify-center items-center">
+    <div class="container py-[8rem] space-y-10">
+
+      <p class="text-3xl font-extrabold">{post.data.title}</p>
+      <p class="font-semibold">{post.data.pubDate} 에 작성되었습니다.</p>
+      <div class="">
+        
+        <Content></Content>
+      </div>
+    </div>
+  </div>
+</Layout>
