@@ -2,6 +2,7 @@
 import type { GetStaticPaths } from "astro";
 import { getCollection, getEntry, render } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+import "../layouts/markdown.css";
 
 const posts = await getCollection('content');
 
@@ -25,14 +26,13 @@ const { Content } = await render(post);
 
 <Layout>
   <div class="w-full h-fit flex justify-center items-center">
-    <div class="container py-[8rem] space-y-10">
+    <div class="container max-w-[800px] py-[8rem] space-y-10">
 
       <p class="text-3xl font-extrabold">{post.data.title}</p>
       <p class="font-semibold">{post.data.pubDate} 에 작성되었습니다.</p>
-      <div class="">
-        
+      <article class="markdown">
         <Content></Content>
-      </div>
+      </article>
     </div>
   </div>
 </Layout>

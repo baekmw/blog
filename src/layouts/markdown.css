@@ -1,0 +1,110 @@
+/* 전체 글 스타일 */
+.markdown {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* 제목 스타일 */
+.markdown h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+.markdown h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #333;
+}
+
+.markdown h3 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+/* 링크 스타일 */
+.markdown a {
+  color: #007aff;
+  text-decoration: none;
+  border-bottom: 1px solid #007aff;
+  transition: all 0.2s ease-in-out;
+}
+
+.markdown a:hover {
+  background-color: #007aff;
+  color: white;
+}
+
+/* 코드 블록 */
+.markdown pre {
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: "Fira Code", monospace;
+}
+
+.markdown code {
+  background: #e5e5e5;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-family: "Fira Code", monospace;
+}
+
+/* 목록 스타일 */
+.markdown ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+
+.markdown ol {
+  list-style: decimal;
+  padding-left: 1.5rem;
+}
+
+.markdown li {
+  margin-bottom: 0.5rem;
+}
+
+/* 인용구 스타일 */
+.markdown blockquote {
+  border-left: 4px solid #007aff;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: #555;
+  font-style: italic;
+  background: #f8f8f8;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+/* 테이블 스타일 */
+.markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.markdown th,
+.markdown td {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+}
+
+.markdown th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}

@@ -7,21 +7,23 @@ const allBiologyPosts = await getCollection('content');
 
 <Layout>
 	<div class="w-full h-full flex flex-col justify-center items-center">
-		<div>pic</div>
-		<div>
-			<p>주제</p>
-			<div>생물학</div>
+		<div class="container max-w-[800px]">
+			<div>pic</div>
+			<div>
+				<p>주제</p>
+				<div>생물학</div>
+			</div>
+			<div>
+				<p>new articles</p>
+				<div>cards {allBiologyPosts.length}</div>
+			</div>
+			<ul>
+				{allBiologyPosts.map(post => (
+					<li>
+					<a href={`/${post.data.slug}`}>{post.id}</a>
+				</li>
+				))}
+		    </ul>
 		</div>
-		<div>
-			<p>new articles</p>
-			<div>cards {allBiologyPosts.length}</div>
-		</div>
-		<ul>
-			{allBiologyPosts.map(post => (
-			  <li>
-				<a href={`/${post.data.slug}`}>{post.id}</a>
-			  </li>
-			))}
-		  </ul>
 	</div>
 </Layout>
