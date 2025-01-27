@@ -1,37 +1,37 @@
 /* 전체 글 스타일 */
 .markdown {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.8;
-  color: #333;
+  color: #3f3f46;
   max-width: 800px;
   margin: auto;
 }
 
 /* 제목 스타일 */
 .markdown h1 {
-  font-size: 2.2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   margin-top: 2rem;
   margin-bottom: 1rem;
-  color: #222;
+  color: #3f3f46;
   border-bottom: 2px solid #ddd;
   padding-bottom: 0.5rem;
 }
 
 .markdown h2 {
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   font-weight: 600;
   margin-top: 1.5rem;
   margin-bottom: 0.75rem;
-  color: #333;
+  color: #3f3f46;
 }
 
 .markdown h3 {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 500;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
-  color: #444;
+  color: #3f3f46;
 }
 
 /* 링크 스타일 */
@@ -61,7 +61,6 @@
   padding: 0.2rem 0.4rem;
   border-radius: 4px;
   font-size: 0.9em;
-  font-family: "Fira Code", monospace;
 }
 
 /* 목록 스타일 */
@@ -85,7 +84,6 @@
   padding-left: 1rem;
   margin: 1rem 0;
   color: #555;
-  font-style: italic;
   background: #f8f8f8;
   padding: 1rem;
   border-radius: 4px;
@@ -107,4 +105,28 @@
 .markdown th {
   background-color: #f4f4f4;
   font-weight: bold;
+}
+
+.markdown mark {
+  background-color: #fffb8f;
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+}
+
+.markdown .katex {
+  font-size: 1.2em;
+  text-align: center;
+  display: block;
+  margin: 0.5rem auto;
+}
+
+.markdown blockquote {
+  border-left: 4px solid #007aff;
+  padding-left: 1rem;
+  background: #f8f8f8;
+  padding: 1rem;
+}
+
+.markdown input[type="checkbox"] {
+  margin-right: 5px;
 }

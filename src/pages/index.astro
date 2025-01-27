@@ -1,29 +1,43 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
-
-const allBiologyPosts = await getCollection('content');
 ---
 
 <Layout>
-	<div class="w-full h-full flex flex-col justify-center items-center">
+	<div class="w-full h-full pt-[10rem] flex flex-col items-center bg-zinc-100">
 		<div class="container max-w-[800px]">
-			<div>pic</div>
-			<div>
-				<p>주제</p>
-				<div>생물학</div>
+			<p>반갑습니다. 백민우입니다.</p>
+			<p class="mt-6">생명과학과 컴퓨터과학을 좋아합니다.</p>
+			<p>공부한 내용 등을 <a href="/blog" class="underline hover:text-green-500 duration-200">블로그</a>에 작성하고 있습니다.</p>
+			<div class="mt-6">
+				
+				<p>프로젝트</p>
+				<div class="flex">
+					<div class="flex justify-start items-center mr-2">
+						<img src="/snu_ui_download.png" class="w-9 h-9"/>
+					</div>
+					<div>
+						<p>서울대학교 생명과학부</p>
+						<p class="text-xs text-zinc-400">2024.03 ~</p>
+					</div>
+					
+				</div>
+				
 			</div>
-			<div>
-				<p>new articles</p>
-				<div>cards {allBiologyPosts.length}</div>
+			<div class="mt-6">
+				
+				<p>학력</p>
+				<div class="flex">
+					<div class="flex justify-start items-center mr-2">
+						<img src="/snu_ui_download.png" class="w-9 h-9"/>
+					</div>
+					<div>
+						<p>서울대학교 생명과학부</p>
+						<p class="text-xs text-zinc-400">2024.03 ~</p>
+					</div>
+					
+				</div>
+				
 			</div>
-			<ul>
-				{allBiologyPosts.map(post => (
-					<li>
-					<a href={`/${post.data.slug}`}>{post.id}</a>
-				</li>
-				))}
-		    </ul>
 		</div>
 	</div>
 </Layout>

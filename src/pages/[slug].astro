@@ -3,6 +3,7 @@ import type { GetStaticPaths } from "astro";
 import { getCollection, getEntry, render } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import "../layouts/markdown.css";
+import Markdown from "../layouts/Markdown.astro";
 
 const posts = await getCollection('content');
 
@@ -20,18 +21,16 @@ const post = posts.find(p => p.data.slug === slug);
 if (!post) {
   throw new Error(`Post not found: ${slug}`);
 }
-
-const { Content } = await render(post);
 ---
 
 <Layout>
-  <div class="w-full h-fit flex justify-center items-center">
+  <div class="w-full h-fit flex justify-center items-center bg-zinc-100">
     <div class="container max-w-[800px] py-[8rem] space-y-10">
 
       <p class="text-3xl font-extrabold">{post.data.title}</p>
       <p class="font-semibold">{post.data.pubDate} 에 작성되었습니다.</p>
       <article class="markdown">
-        <Content></Content>
+        <Markdown content={post.rendered?.html}></Markdown>
       </article>
     </div>
   </div>

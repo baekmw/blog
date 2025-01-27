@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allBiologyPosts = await getCollection('content');
+---
+<Layout>
+	<div class="w-full h-full pt-[10rem] flex justify-center bg-zinc-100">
+        <div class="container max-w-[800px]"><ul>
+                {allBiologyPosts.map(post => (
+                        <li>
+                        <a href={`/${post.data.slug}`} class="hover:text-green-500 duration-200">{post.id}</a>
+                </li>
+                ))}
+    </ul></div>
+        
+</div>
+</Layout>
