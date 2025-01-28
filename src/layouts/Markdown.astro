@@ -1,0 +1,7 @@
+---
+import { parseMarkdown } from "./markdown.ts";
+
+const {content} = Astro.props;
+const html = await parseMarkdown(content);
+---
+<div class="markdown" set:html={html}></div>

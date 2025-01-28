@@ -1,22 +1,45 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
-
-const allBiologyPosts = await getCollection('biology');
 ---
 
 <Layout>
-	<div class="w-fit h-full m-auto">
-		<div>pic</div>
-		<div>
-			<p>topic</p>
-			<div>cards</div>
+	<div class="w-full h-full pt-[10rem] flex flex-col items-center bg-zinc-100">
+		<div class="container max-w-[800px]">
+			<p>반갑습니다. 백민우입니다.</p>
+			<p class="mt-6">생명과학과 컴퓨터과학을 좋아합니다.</p>
+			<p>공부한 내용 등을 <a href="/blog" class="underline hover:text-green-500 duration-200">블로그</a>에 작성하고 있습니다.</p>
+			<!-- <div class="mt-6">
+				<p>프로젝트</p>
+				<div class="flex">
+					<div class="flex justify-start items-center mr-2">
+						<img src="/snu_ui_download.png" class="w-9 h-9"/>
+					</div>
+					<div>
+						<p>SNU E&I X SNAAC Ideathon The Beginning</p>
+						<p class="text-xs text-zinc-400">2024.11.29 ~ 2024.11.30</p>
+					</div>
+				</div>
+			</div> -->
+			<div class="mt-6">
+				<p>학력</p>
+				<div class="flex">
+					<div class="flex justify-start items-center mr-2">
+						<img src="/snu_ui_download.png" class="w-9 h-9"/>
+					</div>
+					<div>
+						<p>서울대학교 생명과학부</p>
+						<p class="text-xs text-zinc-400">2024.03 ~</p>
+					</div>
+				</div>
+			</div>
+			<div class="mt-6">
+				<p>🔗</p>
+				<div class="flex space-x-3">
+					<a href="https://github.com/baekmw"><i class="fa-brands fa-github" style="font-size: 2rem; color: #808080"></i></a>
+					<a href="https://instagram.com/baekmw"><i class="fa-brands fa-instagram" style="font-size: 2rem; color: #808080"></i></a>
+					<a href="https://linkedin.com/baekmw"><i class="fa-brands fa-linkedin" style="font-size: 2rem; color: #808080"></i></a>
+				</div>
+			</div>
 		</div>
-		<div>
-			<p>new articles</p>
-			<div>cards</div>
-		</div>
-		<a href="/articles/biology/02">02</a>
-
 	</div>
 </Layout>
