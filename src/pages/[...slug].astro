@@ -21,6 +21,7 @@ const post = posts.find(p => p.data.slug === slug);
 if (!post) {
   throw new Error(`Post not found: ${slug}`);
 }
+
 ---
 
 <Layout>
@@ -30,7 +31,7 @@ if (!post) {
       <p class="text-3xl font-extrabold">{post.data.title}</p>
       <p class="font-semibold">{post.data.pubDate} 에 작성되었습니다.</p>
       <article class="markdown">
-        <Markdown content={post.rendered?.html}></Markdown>
+        <Markdown content={post.body}></Markdown>
       </article>
     </div>
   </div>
