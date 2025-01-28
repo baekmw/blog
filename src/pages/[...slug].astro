@@ -18,6 +18,7 @@ const posts = await getCollection('content');
 const { slug } = Astro.params;
 
 const post = posts.find(p => p.data.slug === slug);
+
 if (!post) {
   throw new Error(`Post not found: ${slug}`);
 }

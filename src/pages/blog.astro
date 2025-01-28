@@ -6,13 +6,15 @@ const allPosts = await getCollection('content');
 ---
 <Layout>
 	<div class="w-full h-full pt-[10rem] flex justify-center bg-zinc-100">
-        <div class="container max-w-[800px]"><ul>
-                {allPosts.map(post => (
-                        <li>
-                        <a href={`/${post.data.slug}`} class="hover:text-green-500 duration-200">{post.data.title}</a>
-                </li>
-                ))}
-    </ul></div>
-        
+        <div class="container max-w-[800px] space-y-6">
+                <p class="text-xl font-bold">📑category</p>
+                <ul>
+                        <li><a href="/blog/all" class="hover:text-green-500 duration-200">전체 글 보기</a></li>
+                </ul>
+                <ul>
+                        <li><a href="/biology" class="hover:text-green-500 duration-200">생물학</a></li>
+                        <li><a href="/etc" class="hover:text-green-500 duration-200">기타</a></li>
+                </ul></div>
+                
 </div>
 </Layout>
