@@ -3,18 +3,19 @@ import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
 const allPosts = await getCollection('content');
+const category = allPosts.map((p)=>p.data.slug?.split("/")[0]).filter((v, i, s)=>s.indexOf(v)===i).sort();
 ---
 <Layout>
 	<div class="w-full h-full pt-[10rem] flex justify-center bg-zinc-100">
         <div class="container max-w-[800px] space-y-6">
                 <p class="text-xl font-bold">📑category</p>
                 <ul>
-                        <li><a href="/blog/all" class="hover:text-green-500 duration-200">전체 글 보기</a></li>
+                        <li><a href="/all" class="flex items-center hover:text-green-500 duration-200">전체 글 보기 <div class="h-fit min-w-4 ml-2 px-1 bg-zinc-500/60 text-white text-center text-xs font-semibold rounded-md">{allPosts.length}</div></a></li>
                 </ul>
                 <ul>
-                        <li><a href="/biology" class="hover:text-green-500 duration-200">생물학</a></li>
-                        <li><a href="/etc" class="hover:text-green-500 duration-200">기타</a></li>
+                        {category.map((p)=>(
+                         <li><a href={"/" + p} class="flex items-center hover:text-green-500 duration-200">{p} <div class="h-fit min-w-4 ml-2 px-1 bg-zinc-500/60 text-white text-center text-xs font-semibold rounded-md">{p ? allPosts.filter((po)=>po.data.slug?.startsWith(p)).length : ''}</div></a></li>       
+                        ))}
                 </ul></div>
-                
 </div>
 </Layout>
