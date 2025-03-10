@@ -1,7 +1,7 @@
 ---
 sticker: emoji//1f334
-title: vietnam-trip
-slug: vietnam-trip
+title: 베트남 여행
+slug: etc/베트남-여행
 pubDate: "2025-01-16"
 ---
 

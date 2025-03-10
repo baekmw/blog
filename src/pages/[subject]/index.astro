@@ -1,5 +1,4 @@
 ---
-import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 
@@ -7,22 +6,25 @@ const allPosts = await getCollection('content');
 
 export const getStaticPaths = (async () => {
     const posts = await getCollection('content');
-    return posts
+    const params = posts
         .map((post) => post.data.slug ? { params: { subject: post.data.slug.split("/")[0] } } : null)
         .filter(Boolean);
-}) satisfies GetStaticPaths;
-
+        params.push({params: {subject: 'all'}});
+        return params;
+})
 
 const {subject} = Astro.params;
-const postList = allPosts.filter((p)=>p.data.slug?.startsWith(subject));
+const postList = allPosts.filter((p)=>{
+    if(subject === 'all') return true;
+    else return p.data.slug?.startsWith(subject)});
 ---
 <Layout>
     <div class="w-full h-full pt-[10rem] flex flex-col items-center bg-zinc-100">
 		<div class="container max-w-[800px] space-y-6">
-            <p class="text-xl font-bold">🧬Biology</p>
+            <p class="text-xl font-bold">{subject === 'all' ? '전체 글 목록' : subject}</p>
             <ul>
                 {postList.map((p)=>(
-                    <li><a href={p.data.slug} class="hover:text-green-500 duration-200">{p.data.title}</a></li>
+                    <li class="flex">{subject === 'all' ? (<span class="w-16 text-xs text-blue-500">{p.data.slug?.split("/")[0]}</span>) : ''}<a href={p.data.slug} class="w-full hover:text-green-500 duration-200">{p.data.sticker ? String.fromCodePoint(parseInt(p.data.sticker.split("//")[1].split("-")[0], 16)) : ''}{p.data.title}</a></li>
                 ))}
             </ul>
         </div>
